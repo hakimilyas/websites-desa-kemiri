@@ -1,0 +1,30 @@
+{
+  "name": "website-desa-kemiri",
+  "version": "1.0.0",
+  "description": "Website Resmi Desa Kemiri - Eleventy + Decap CMS + Tailwind CSS + Alpine.js",
+  "main": "index.js",
+  "scripts": {
+    "css:build": "tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/styles.css --minify",
+    "css:watch": "tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/styles.css --watch",
+    "build": "npm run css:build && eleventy",
+    "dev": "concurrently \"npm run css:watch\" \"eleventy --serve\"",
+    "start": "npm run dev"
+  },
+  "keywords": [
+    "eleventy",
+    "jamstack",
+    "decap-cms",
+    "tailwind",
+    "alpinejs",
+    "desa-kemiri"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
+}

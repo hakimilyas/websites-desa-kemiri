@@ -1,0 +1,87 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  # a. Halaman Utama (Single File -> src/data/home.json)
+  - name: "home"
+    label: "Halaman Utama"
+    files:
+      - file: "src/data/home.json"
+        label: "Konten Beranda"
+        name: "home_data"
+        fields:
+          - { label: "Judul Hero", name: "title", widget: "string" }
+          - { label: "Slogan Desa", name: "slogan", widget: "string" }
+          - { label: "Foto Hero (Cover)", name: "hero_image", widget: "image" }
+          - { label: "Google Maps Embed URL", name: "maps_embed_url", widget: "string" }
+          - { label: "Deskripsi Lokasi", name: "location_text", widget: "text" }
+          - { label: "Ringkasan Sejarah", name: "history_summary", widget: "text" }
+
+  # b. Profil & Infografis (Single File -> src/data/profil.json)
+  - name: "profil"
+    label: "Profil & Infografis"
+    files:
+      - file: "src/data/profil.json"
+        label: "Konten Profil & Infografis"
+        name: "profil_data"
+        fields:
+          - { label: "Deskripsi Singkat", name: "short_description", widget: "text" }
+          - label: "Foto Carousel (1:1)"
+            name: "carousel_images"
+            widget: "list"
+            fields:
+              - { label: "Foto", name: "image", widget: "image" }
+              - { label: "Caption Foto", name: "caption", widget: "string" }
+          - { label: "Narasi Sejarah Lengkap", name: "full_history", widget: "text" }
+          - { label: "Link Google Maps", name: "maps_url", widget: "string" }
+          - { label: "Deskripsi Geografis", name: "location_text", widget: "text" }
+          - { label: "Jumlah Dusun", name: "dusun_count", widget: "number", value_type: "int" }
+          - { label: "Jumlah RW", name: "rw_count", widget: "number", value_type: "int" }
+          - { label: "Jumlah RT", name: "rt_count", widget: "number", value_type: "int" }
+          - { label: "Total Kepala Keluarga (KK)", name: "total_kk", widget: "number", value_type: "int" }
+
+  # c. UMKM (Folder Collection -> src/umkm/*.md)
+  - name: "umkm"
+    label: "Katalog UMKM"
+    folder: "src/umkm"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nama Usaha", name: "name", widget: "string" }
+      - { label: "Foto Produk (Thumbnail)", name: "thumbnail", widget: "image" }
+      - { label: "Deskripsi Singkat", name: "short_description", widget: "text" }
+      - { label: "Video YouTube URL", name: "video_youtube_url", widget: "string" }
+      - label: "Tipe Interaksi Klik"
+        name: "link_type"
+        widget: "select"
+        options:
+          - { label: "Tipe A (Direct Link Google Sites)", value: "direct" }
+          - { label: "Tipe B (Modal / Detail Popup)", value: "modal" }
+      - { label: "Google Sites URL (Khusus Tipe Direct)", name: "google_sites_url", widget: "string", required: false }
+      - { label: "Google Maps Location (Khusus Tipe Modal)", name: "maps_location", widget: "string", required: false }
+      - label: "Daftar Produk Dijual (Khusus Tipe Modal)"
+        name: "products_sold"
+        widget: "list"
+        required: false
+      - { label: "Shopee Link (Khusus Tipe Modal)", name: "shopee_link", widget: "string", required: false }
+      - { label: "TikTok Shop Link (Khusus Tipe Modal)", name: "tiktok_link", widget: "string", required: false }
+      - { label: "Konten Tambahan", name: "body", widget: "markdown", required: false }
+
+  # d. Galeri (Folder Collection -> src/galeri/*.md)
+  - name: "galeri"
+    label: "Galeri Foto"
+    folder: "src/galeri"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Judul Foto", name: "title", widget: "string" }
+      - { label: "File Gambar", name: "image", widget: "image" }
+      - label: "Kategori"
+        name: "category"
+        widget: "select"
+        options: ["Pemandangan", "Kegiatan"]
+      - { label: "Caption / Keterangan", name: "caption", widget: "text" }

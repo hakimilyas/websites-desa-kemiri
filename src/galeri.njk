@@ -1,0 +1,141 @@
+---
+layout: base.njk
+title: "Galeri Foto Desa"
+permalink: "/galeri/index.html"
+description: "Dokumentasi keindahan alam, pemandangan, dan kegiatan warga Desa Kemiri."
+---
+
+<!-- Header Section -->
+<section class="bg-gradient-to-b from-emerald-900 to-slate-900 text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+    <h1 class="text-4xl font-extrabold tracking-tight">Galeri Foto & Abadikan Momen</h1>
+    <p class="text-emerald-100 text-lg max-w-2xl mx-auto">
+      Kumpulan dokumentasi panorama alam dan hangatnya kebersamaan kegiatan warga Desa Kemiri.
+    </p>
+  </div>
+</section>
+
+<!-- Gallery Section with Alpine.js Filtering & Lightbox -->
+<section class="py-16 bg-slate-50" x-data="{ 
+  category: 'Semua', 
+  activeLightbox: null,
+  items: [
+    {% for item in collections.galeri %}
+      {
+        title: '{{ item.data.title | escape }}',
+        image: '{{ item.data.image }}',
+        category: '{{ item.data.category }}',
+        caption: '{{ item.data.caption | escape }}'
+      }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Category Filter Buttons -->
+    <div class="flex justify-center items-center flex-wrap gap-3 mb-12">
+      <button @click="category = 'Semua'" 
+              :class="category === 'Semua' ? 'bg-emerald-700 text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'"
+              class="px-5 py-2.5 rounded-full text-sm font-bold transition-all">
+        🌟 Semua Foto
+      </button>
+
+      <button @click="category = 'Pemandangan'" 
+              :class="category === 'Pemandangan' ? 'bg-emerald-700 text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'"
+              class="px-5 py-2.5 rounded-full text-sm font-bold transition-all">
+        🌾 Pemandangan Desa
+      </button>
+
+      <button @click="category = 'Kegiatan'" 
+              :class="category === 'Kegiatan' ? 'bg-emerald-700 text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'"
+              class="px-5 py-2.5 rounded-full text-sm font-bold transition-all">
+        🤝 Kegiatan Warga
+      </button>
+    </div>
+
+    <!-- Gallery Grid (Responsive Grid) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <template x-for="(item, index) in items" :key="index">
+        <div x-show="category === 'Semua' || category === item.category" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-95"
+             x-transition:enter-end="opacity-100 scale-100"
+             @click="activeLightbox = item"
+             class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl bg-white border border-slate-200 cursor-pointer transition-all duration-300">
+          
+          <!-- Image aspect-video -->
+          <div class="h-64 overflow-hidden bg-slate-100 relative">
+            <img :src="item.image" :alt="item.title" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="p-3 rounded-full bg-white/20 backdrop-blur-md text-white">
+                🔍 Perbesar
+              </span>
+            </div>
+          </div>
+
+          <!-- Caption & Title Card Footer -->
+          <div class="p-5 bg-white">
+            <span :class="item.category === 'Pemandangan' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'"
+                  class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md" 
+                  x-text="item.category">
+            </span>
+            <h3 class="font-bold text-slate-900 text-base mt-2 leading-snug" x-text="item.title"></h3>
+            <p class="text-slate-500 text-xs mt-1 line-clamp-2" x-text="item.caption"></p>
+          </div>
+        </div>
+      </template>
+    </div>
+
+  </div>
+
+  <!-- Fullscreen Lightbox Modal (Alpine.js) -->
+  <div x-show="activeLightbox !== null" 
+       x-cloak
+       class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+       role="dialog">
+    
+    <!-- Lightbox Backdrop -->
+    <div x-show="activeLightbox !== null"
+         x-transition:enter="ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="activeLightbox = null"
+         class="fixed inset-0 bg-slate-950/90 backdrop-blur-md"></div>
+
+    <!-- Lightbox Popup Window -->
+    <div x-show="activeLightbox !== null"
+         x-transition:enter="ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-95"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="ease-in duration-200"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-95"
+         class="relative z-10 max-w-4xl w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 text-white">
+      
+      <!-- Close Button -->
+      <button @click="activeLightbox = null" 
+              class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors">
+        ✕
+      </button>
+
+      <!-- Lightbox Image -->
+      <div class="max-h-[70vh] bg-black flex items-center justify-center">
+        <img :src="activeLightbox ? activeLightbox.image : ''" :alt="activeLightbox ? activeLightbox.title : ''" class="max-h-[70vh] w-auto object-contain">
+      </div>
+
+      <!-- Lightbox Caption Bar -->
+      <div class="p-6 bg-slate-900 border-t border-slate-800 space-y-2">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-white" x-text="activeLightbox ? activeLightbox.title : ''"></h3>
+          <span class="text-xs px-2.5 py-1 rounded bg-emerald-600 text-white font-semibold" x-text="activeLightbox ? activeLightbox.category : ''"></span>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed" x-text="activeLightbox ? activeLightbox.caption : ''"></p>
+      </div>
+
+    </div>
+  </div>
+
+</section>

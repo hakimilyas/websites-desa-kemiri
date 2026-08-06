@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="title" content="{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="author" content="{{ site.author }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="{% if og_image %}{{ og_image }}{% else %}/assets/images/hero-kemiri.jpg{% endif %}">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="twitter:title" content="{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- Netlify Identity Widget for CMS Auth -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800">
+
+  <!-- Navigation Bar -->
+  {% include "components/navbar.njk" %}
+
+  <!-- Main Content -->
+  <main class="flex-grow">
+    {{ content | safe }}
+  </main>
+
+  <!-- Footer -->
+  {% include "components/footer.njk" %}
+
+  <!-- Netlify Identity Script for Admin Login Redirection -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

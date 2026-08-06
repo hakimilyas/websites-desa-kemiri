@@ -1,0 +1,24 @@
+{
+  "short_description": "Desa Kemiri adalah kawasan agraris yang ramah, berdaya saing tinggi, dan kaya akan tradisi leluhur.",
+  "carousel_images": [
+    {
+      "image": "/assets/images/profil-carousel-1.jpg",
+      "caption": "Pemandangan Sawah dan Perbukitan Desa Kemiri"
+    },
+    {
+      "image": "/assets/images/profil-carousel-2.jpg",
+      "caption": "Kegiatan Balai Desa & Kebersamaan Warga"
+    },
+    {
+      "image": "/assets/images/profil-carousel-3.jpg",
+      "caption": "Sentra Kerajinan dan UMKM Lokal Desa"
+    }
+  ],
+  "full_history": "Sejarah Desa Kemiri berakar dari masa lampau di mana nama 'Kemiri' diambil dari banyaknya pohon kemiri yang tumbuh subur dan menjadi penanda wilayah pemukiman awal. Sejak abad ke-19, warga desa hidup dari sektor pertanian dan perkebunan.\n\nDalam perkembangannya, Desa Kemiri terus bertransformasi menjadi desa mandiri dengan tata kelola administrasi modern tanpa mengesampingkan kearifan lokal. Gotong royong, musyawarah desa, serta pelestarian lingkungan menjadi fondasi utama kehidupan bermasyarakat.",
+  "maps_url": "https://maps.google.com/?q=-7.200000,110.370000",
+  "location_text": "Desa Kemiri terletak pada koordinat geografis yang strategis, terhubung langsung dengan jalur penghubung antar-kecamatan. Didukung tanah yang subur dan sumber air melimpah, mayoritas kawasan desa dimanfaatkan untuk pertanian padi, kebun sayur, dan pemukiman warga.",
+  "dusun_count": 4,
+  "rw_count": 8,
+  "rt_count": 24,
+  "total_kk": 1250
+}

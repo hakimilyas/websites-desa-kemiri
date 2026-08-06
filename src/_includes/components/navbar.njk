@@ -1,0 +1,77 @@
+<header x-data="{ mobileMenuOpen: false, scrolled: false }" 
+        @scroll.window="scrolled = (window.pageYOffset > 20)" 
+        :class="scrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-white/80 backdrop-blur-sm py-4'"
+        class="sticky top-0 z-40 transition-all duration-300 border-b border-emerald-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <!-- Logo & Brand Name -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-700 to-emerald-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-700/20 group-hover:scale-105 transition-transform">
+        K
+      </div>
+      <div>
+        <span class="block text-lg font-bold text-slate-900 leading-none tracking-tight">Desa Kemiri</span>
+        <span class="text-xs text-emerald-600 font-medium tracking-wide uppercase">Website Resmi</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+      <a href="/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors {% if page.url == '/' %}bg-emerald-50 text-emerald-700{% else %}text-slate-600 hover:text-emerald-700 hover:bg-slate-50{% endif %}">
+        Home
+      </a>
+      <a href="/profil/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors {% if '/profil' in page.url %}bg-emerald-50 text-emerald-700{% else %}text-slate-600 hover:text-emerald-700 hover:bg-slate-50{% endif %}">
+        Profil & Infografis
+      </a>
+      <a href="/umkm/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors {% if '/umkm' in page.url %}bg-emerald-50 text-emerald-700{% else %}text-slate-600 hover:text-emerald-700 hover:bg-slate-50{% endif %}">
+        UMKM
+      </a>
+      <a href="/galeri/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors {% if '/galeri' in page.url %}bg-emerald-50 text-emerald-700{% else %}text-slate-600 hover:text-emerald-700 hover:bg-slate-50{% endif %}">
+        Galeri
+      </a>
+      <a href="/admin/" target="_blank" class="ml-3 px-4 py-2 rounded-lg text-xs font-bold text-white bg-emerald-700 hover:bg-emerald-800 transition-shadow shadow-md shadow-emerald-700/20 flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        Admin CMS
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button @click="mobileMenuOpen = !mobileMenuOpen" 
+            type="button" 
+            class="md:hidden p-2 rounded-lg text-slate-600 hover:text-emerald-700 hover:bg-slate-100 focus:outline-none"
+            aria-label="Toggle Navigation">
+      <svg class="w-6 h-6" x-show="!mobileMenuOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <svg class="w-6 h-6" x-show="mobileMenuOpen" x-cloak fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div x-show="mobileMenuOpen" 
+       x-cloak
+       x-transition:enter="transition ease-out duration-200"
+       x-transition:enter-start="opacity-0 -translate-y-2"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-150"
+       x-transition:leave-start="opacity-100 translate-y-0"
+       x-transition:leave-end="opacity-0 -translate-y-2"
+       class="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+    <a href="/" class="block px-3 py-2 rounded-md text-base font-semibold {% if page.url == '/' %}bg-emerald-50 text-emerald-700{% else %}text-slate-600 hover:bg-slate-50{% endif %}">
+      Home
+    </a>
+    <a href="/profil/" class="block px-3 py-2 rounded-md text-base font-semibold {% if '/profil' in page.url %}bg-emerald-50 text-emerald-700{% else %}text-slate-600 hover:bg-slate-50{% endif %}">
+      Profil & Infografis
+    </a>
+    <a href="/umkm/" class="block px-3 py-2 rounded-md text-base font-semibold {% if '/umkm' in page.url %}bg-emerald-50 text-emerald-700{% else %}text-slate-600 hover:bg-slate-50{% endif %}">
+      UMKM
+    </a>
+    <a href="/galeri/" class="block px-3 py-2 rounded-md text-base font-semibold {% if '/galeri' in page.url %}bg-emerald-50 text-emerald-700{% else %}text-slate-600 hover:bg-slate-50{% endif %}">
+      Galeri
+    </a>
+    <a href="/admin/" target="_blank" class="block w-full text-center mt-2 px-3 py-2.5 rounded-md text-base font-bold text-white bg-emerald-700 hover:bg-emerald-800">
+      Login Admin CMS
+    </a>
+  </div>
+</header>

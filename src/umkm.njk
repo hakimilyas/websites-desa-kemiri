@@ -1,0 +1,205 @@
+---
+layout: base.njk
+title: "Katalog UMKM Desa"
+permalink: "/umkm/index.html"
+description: "Katalog Usaha Mikro, Kecil, dan Menengah (UMKM) Desa Kemiri. Produk olahan makanan, kerajinan, dan komoditas pertanian."
+---
+
+<!-- Header Section with YouTube Video Embed -->
+<section class="bg-slate-900 text-white py-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div class="text-center space-y-3">
+      <span class="px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+        Produk Lokal Khas Desa
+      </span>
+      <h1 class="text-4xl font-extrabold tracking-tight">Katalog UMKM Desa Kemiri</h1>
+      <p class="text-slate-300 text-base max-w-2xl mx-auto">
+        Saksikan video profil pemberdayaan ekonomi dan jelajahi berbagai produk unggulan warga desa kami.
+      </p>
+    </div>
+
+    <!-- Video YouTube Header Embed -->
+    <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-700 aspect-video bg-black">
+      <iframe 
+        class="w-full h-full" 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        title="Profil UMKM Desa Kemiri" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- UMKM Grid Catalog & Alpine Modal Container -->
+<section class="py-16 bg-slate-50" x-data="{ activeModal: null }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900">Daftar Pelaku UMKM</h2>
+        <p class="text-slate-600 text-sm">Klik kartu produk untuk melihat detail atau mengunjungi halaman resmi usahanya.</p>
+      </div>
+      <div class="text-xs text-slate-500">
+        Menampilkan {{ collections.umkm.length }} Usaha Lokal
+      </div>
+    </div>
+
+    <!-- Catalog Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {% for item in collections.umkm %}
+        {% set data = item.data %}
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="{{ data.thumbnail }}" alt="{{ data.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 right-3">
+              {% if data.link_type == 'direct' %}
+                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white shadow">
+                  Google Sites
+                </span>
+              {% else %}
+                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow">
+                  Detail Popup
+                </span>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                {{ data.name }}
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                {{ data.short_description }}
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            {% if data.link_type == 'direct' %}
+              <!-- Tipe A: Direct External Link -->
+              <a href="{{ data.google_sites_url }}" target="_blank" rel="noopener noreferrer" 
+                 class="w-full py-2.5 px-4 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors">
+                <span>Kunjungi Website (Sites)</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            {% else %}
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: '{{ data.name | escape }}',
+                        thumbnail: '{{ data.thumbnail }}',
+                        description: '{{ data.short_description | escape }}',
+                        maps_location: '{{ data.maps_location }}',
+                        products: {{ data.products_sold | json }},
+                        shopee: '{{ data.shopee_link }}',
+                        tiktok: '{{ data.tiktok_link }}'
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            {% endif %}
+
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+  <!-- Tipe B Modal Popup (Alpine.js) -->
+  <div x-show="activeModal !== null" 
+       x-cloak
+       class="fixed inset-0 z-50 overflow-y-auto"
+       aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    
+    <!-- Backdrop Overlay -->
+    <div x-show="activeModal !== null"
+         x-transition:enter="ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="activeModal = null" 
+         class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity"></div>
+
+    <!-- Modal Dialog Position -->
+    <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+      
+      <div x-show="activeModal !== null"
+           x-transition:enter="ease-out duration-300"
+           x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+           x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+           x-transition:leave="ease-in duration-200"
+           x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+           x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+           class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-slate-200">
+        
+        <!-- Modal Content Header -->
+        <div class="relative h-44 bg-slate-900">
+          <img :src="activeModal ? activeModal.thumbnail : ''" :alt="activeModal ? activeModal.name : ''" class="w-full h-full object-cover opacity-60">
+          <button @click="activeModal = null" type="button" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors">
+            ✕
+          </button>
+          <div class="absolute bottom-4 left-6 right-6 text-white">
+            <h3 class="text-2xl font-bold" x-text="activeModal ? activeModal.name : ''"></h3>
+          </div>
+        </div>
+
+        <!-- Body Details -->
+        <div class="p-6 space-y-6">
+          
+          <!-- Deskripsi -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Deskripsi Usaha</h4>
+            <p class="text-slate-600 text-sm leading-relaxed" x-text="activeModal ? activeModal.description : ''"></p>
+          </div>
+
+          <!-- Daftar Produk -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Daftar Produk Dijual</h4>
+            <ul class="space-y-1.5 text-sm text-slate-700">
+              <template x-for="(prod, i) in (activeModal ? activeModal.products : [])" :key="i">
+                <li class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span x-text="prod"></span>
+                </li>
+              </template>
+            </ul>
+          </div>
+
+          <!-- Quick Action Marketplace Links -->
+          <div class="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+            <!-- Google Maps -->
+            <a :href="activeModal ? activeModal.maps_location : '#'" target="_blank" rel="noopener"
+               class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2">
+              <span>📍 Buka Lokasi di Google Maps</span>
+            </a>
+
+            <!-- Shopee & TikTok links -->
+            <div class="grid grid-cols-2 gap-2">
+              <a :href="activeModal && activeModal.shopee ? activeModal.shopee : '#'" target="_blank" rel="noopener"
+                 class="py-2.5 px-3 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-600 font-semibold text-xs text-center flex items-center justify-center gap-1.5">
+                <span>🛒 Toko Shopee</span>
+              </a>
+
+              <a :href="activeModal && activeModal.tiktok ? activeModal.tiktok : '#'" target="_blank" rel="noopener"
+                 class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs text-center flex items-center justify-center gap-1.5">
+                <span>🎵 Toko TikTok</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
