@@ -1,0 +1,121 @@
+---
+layout: base.njk
+title: "Berita & Pengumuman Desa"
+description: "Kabar terbaru, informasi kegiatan, dan pengumuman resmi dari Pemerintah Desa Kemiri."
+pagination:
+  data: collections.berita
+  size: 9
+  alias: beritaList
+permalink: "/berita/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+---
+
+<!-- Header Section -->
+<section class="bg-gradient-to-b from-emerald-900 to-slate-900 text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+    <span class="px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+      Kabar Terkini Desa
+    </span>
+    <h1 class="text-4xl font-extrabold tracking-tight">Berita & Informasi Desa Kemiri</h1>
+    <p class="text-emerald-100 text-lg max-w-2xl mx-auto">
+      Dapatkan kabar terbaru, pengumuman publik, dan ragam kegiatan masyarakat Desa Kemiri.
+    </p>
+  </div>
+</section>
+
+<!-- News Grid Section -->
+<section class="py-16 bg-slate-50 min-h-[60vh]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {% if beritaList.length > 0 %}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for post in beritaList %}
+          <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+            
+            <!-- Thumbnail Image -->
+            <a href="{{ post.url }}" class="relative h-52 overflow-hidden bg-slate-100 block">
+              {% if post.data.cover_image %}
+                <img src="{{ post.data.cover_image }}" alt="{{ post.data.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              {% else %}
+                <div class="w-full h-full bg-emerald-800 flex items-center justify-center text-white font-bold text-lg">
+                  Desa Kemiri
+                </div>
+              {% endif %}
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow">
+                  Berita
+                </span>
+              </div>
+            </a>
+
+            <!-- Content Card -->
+            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                  <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  <span>{{ post.data.date | readableDate }}</span>
+                  {% if post.data.author %}
+                    <span>•</span>
+                    <span>{{ post.data.author }}</span>
+                  {% endif %}
+                </div>
+
+                <h2 class="text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2 leading-snug">
+                  <a href="{{ post.url }}">
+                    {{ post.data.title }}
+                  </a>
+                </h2>
+
+                <p class="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                  {{ post.data.excerpt }}
+                </p>
+              </div>
+
+              <!-- Read More Link -->
+              <div class="pt-4 border-t border-slate-100">
+                <a href="{{ post.url }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors group-hover:translate-x-1 duration-200">
+                  <span>Baca Selengkapnya</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </article>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination Navigation -->
+      {% if pagination.pages.length > 1 %}
+        <nav class="mt-12 flex justify-center items-center gap-2" aria-label="Navigasi Halaman">
+          {% if pagination.href.previous %}
+            <a href="{{ pagination.href.previous }}" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 text-sm font-semibold hover:bg-slate-50 transition-colors">
+              ← Sebelumnya
+            </a>
+          {% endif %}
+
+          {% for pageHref in pagination.hrefs %}
+            <a href="{{ pageHref }}" 
+               class="px-4 py-2 rounded-xl text-sm font-semibold transition-all {% if page.url == pageHref %}bg-emerald-700 text-white shadow-md{% else %}bg-white border border-slate-200 text-slate-700 hover:bg-slate-50{% endif %}">
+              {{ loop.index }}
+            </a>
+          {% endfor %}
+
+          {% if pagination.href.next %}
+            <a href="{{ pagination.href.next }}" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 text-sm font-semibold hover:bg-slate-50 transition-colors">
+              Selanjutnya →
+            </a>
+          {% endif %}
+        </nav>
+      {% endif %}
+
+    {% else %}
+      <div class="text-center py-16 bg-white rounded-3xl border border-slate-200 max-w-md mx-auto">
+        <p class="text-slate-500 font-medium">Belum ada berita yang diterbitkan.</p>
+      </div>
+    {% endif %}
+
+  </div>
+</section>

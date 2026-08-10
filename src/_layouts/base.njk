@@ -7,21 +7,21 @@
   <!-- Primary Meta Tags -->
   <title>{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="title" content="{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="author" content="{{ site.author }}">
+  <meta name="description" content="{% if description %}{{ description }}{% elif excerpt %}{{ excerpt }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="author" content="{% if author %}{{ author }}{% else %}{{ site.author }}{% endif %}">
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:title" content="{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:image" content="{% if og_image %}{{ og_image }}{% else %}/assets/images/hero-kemiri.jpg{% endif %}">
+  <meta property="og:description" content="{% if description %}{{ description }}{% elif excerpt %}{{ excerpt }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="{% if og_image %}{{ og_image }}{% elif cover_image %}{{ cover_image }}{% else %}/assets/images/hero-kemiri.jpg{% endif %}">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
   <meta property="twitter:title" content="{% if title %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="twitter:description" content="{% if description %}{{ description }}{% elif excerpt %}{{ excerpt }}{% else %}{{ site.description }}{% endif %}">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/assets/css/styles.css">

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Berita &amp; Pengumuman Desa — Website Resmi Desa Kemiri</title>
+  <meta name="title" content="Berita &amp; Pengumuman Desa — Website Resmi Desa Kemiri">
+  <meta name="description" content="Kabar terbaru, informasi kegiatan, dan pengumuman resmi dari Pemerintah Desa Kemiri.">
+  <meta name="author" content="Pemerintah Desa Kemiri">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://desa-kemiri.netlify.app/berita/">
+  <meta property="og:title" content="Berita &amp; Pengumuman Desa — Website Resmi Desa Kemiri">
+  <meta property="og:description" content="Kabar terbaru, informasi kegiatan, dan pengumuman resmi dari Pemerintah Desa Kemiri.">
+  <meta property="og:image" content="/assets/images/hero-kemiri.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://desa-kemiri.netlify.app/berita/">
+  <meta property="twitter:title" content="Berita &amp; Pengumuman Desa — Website Resmi Desa Kemiri">
+  <meta property="twitter:description" content="Kabar terbaru, informasi kegiatan, dan pengumuman resmi dari Pemerintah Desa Kemiri.">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- Netlify Identity Widget for CMS Auth -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800">
+
+  <!-- Navigation Bar -->
+  <header x-data="{ mobileMenuOpen: false, scrolled: false }" 
+        @scroll.window="scrolled = (window.pageYOffset > 20)" 
+        :class="scrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-white/80 backdrop-blur-sm py-4'"
+        class="sticky top-0 z-40 transition-all duration-300 border-b border-emerald-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <!-- Logo & Brand Name -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-700 to-emerald-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-700/20 group-hover:scale-105 transition-transform">
+        K
+      </div>
+      <div>
+        <span class="block text-lg font-bold text-slate-900 leading-none tracking-tight">Desa Kemiri</span>
+        <span class="text-xs text-emerald-600 font-medium tracking-wide uppercase">Website Resmi</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+      <a href="/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors text-slate-600 hover:text-emerald-700 hover:bg-slate-50">
+        Home
+      </a>
+      <a href="/profil/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors text-slate-600 hover:text-emerald-700 hover:bg-slate-50">
+        Profil & Infografis
+      </a>
+      <a href="/umkm/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors text-slate-600 hover:text-emerald-700 hover:bg-slate-50">
+        UMKM
+      </a>
+      <a href="/berita/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors bg-emerald-50 text-emerald-700">
+        Berita
+      </a>
+      <a href="/galeri/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors text-slate-600 hover:text-emerald-700 hover:bg-slate-50">
+        Galeri
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button @click="mobileMenuOpen = !mobileMenuOpen" 
+            type="button" 
+            class="md:hidden p-2 rounded-lg text-slate-600 hover:text-emerald-700 hover:bg-slate-100 focus:outline-none"
+            aria-label="Toggle Navigation">
+      <svg class="w-6 h-6" x-show="!mobileMenuOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <svg class="w-6 h-6" x-show="mobileMenuOpen" x-cloak fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div x-show="mobileMenuOpen" 
+       x-cloak
+       x-transition:enter="transition ease-out duration-200"
+       x-transition:enter-start="opacity-0 -translate-y-2"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-150"
+       x-transition:leave-start="opacity-100 translate-y-0"
+       x-transition:leave-end="opacity-0 -translate-y-2"
+       class="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+    <a href="/" class="block px-3 py-2 rounded-md text-base font-semibold text-slate-600 hover:bg-slate-50">
+      Home
+    </a>
+    <a href="/profil/" class="block px-3 py-2 rounded-md text-base font-semibold text-slate-600 hover:bg-slate-50">
+      Profil & Infografis
+    </a>
+    <a href="/umkm/" class="block px-3 py-2 rounded-md text-base font-semibold text-slate-600 hover:bg-slate-50">
+      UMKM
+    </a>
+    <a href="/berita/" class="block px-3 py-2 rounded-md text-base font-semibold bg-emerald-50 text-emerald-700">
+      Berita
+    </a>
+    <a href="/galeri/" class="block px-3 py-2 rounded-md text-base font-semibold text-slate-600 hover:bg-slate-50">
+      Galeri
+    </a>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  <main class="flex-grow">
+    
+<!-- Header Section -->
+<section class="bg-gradient-to-b from-emerald-900 to-slate-900 text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+    <span class="px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+      Kabar Terkini Desa
+    </span>
+    <h1 class="text-4xl font-extrabold tracking-tight">Berita & Informasi Desa Kemiri</h1>
+    <p class="text-emerald-100 text-lg max-w-2xl mx-auto">
+      Dapatkan kabar terbaru, pengumuman publik, dan ragam kegiatan masyarakat Desa Kemiri.
+    </p>
+  </div>
+</section>
+
+<!-- News Grid Section -->
+<section class="py-16 bg-slate-50 min-h-[60vh]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+          <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+            
+            <!-- Thumbnail Image -->
+            <a href="/berita/panen-raya-organik-kemiri/" class="relative h-52 overflow-hidden bg-slate-100 block">
+              
+                <img src="/assets/images/galeri-sawah.jpg" alt="Masyarakat Desa Kemiri Rayakan Panen Raya Padi Organik dan Festival Budaya" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow">
+                  Berita
+                </span>
+              </div>
+            </a>
+
+            <!-- Content Card -->
+            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                  <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  <span>8 Agustus 2026</span>
+                  
+                    <span>•</span>
+                    <span>Panitia Festival Kemiri</span>
+                  
+                </div>
+
+                <h2 class="text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2 leading-snug">
+                  <a href="/berita/panen-raya-organik-kemiri/">
+                    Masyarakat Desa Kemiri Rayakan Panen Raya Padi Organik dan Festival Budaya
+                  </a>
+                </h2>
+
+                <p class="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                  Wujud rasa syukur atas melimpahnya hasil bumi, warga Desa Kemiri menyelenggarakan Panen Raya Padi Organik diselingi pertunjukan budaya tradisional.
+                </p>
+              </div>
+
+              <!-- Read More Link -->
+              <div class="pt-4 border-t border-slate-100">
+                <a href="/berita/panen-raya-organik-kemiri/" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors group-hover:translate-x-1 duration-200">
+                  <span>Baca Selengkapnya</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </article>
+        
+          <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+            
+            <!-- Thumbnail Image -->
+            <a href="/berita/pelatihan-umkm-digital/" class="relative h-52 overflow-hidden bg-slate-100 block">
+              
+                <img src="/assets/images/umkm-kopi.jpg" alt="Pelatihan Digital Marketing dan E-Commerce untuk Pelaku UMKM Kemiri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow">
+                  Berita
+                </span>
+              </div>
+            </a>
+
+            <!-- Content Card -->
+            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                  <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  <span>7 Agustus 2026</span>
+                  
+                    <span>•</span>
+                    <span>Pendamping Desa</span>
+                  
+                </div>
+
+                <h2 class="text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2 leading-snug">
+                  <a href="/berita/pelatihan-umkm-digital/">
+                    Pelatihan Digital Marketing dan E-Commerce untuk Pelaku UMKM Kemiri
+                  </a>
+                </h2>
+
+                <p class="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                  Puluhan pengusaha lokal Desa Kemiri antusias mengikuti lokakarya pemasaran digital, pembuatan katalog online, dan optimalisasi media sosial.
+                </p>
+              </div>
+
+              <!-- Read More Link -->
+              <div class="pt-4 border-t border-slate-100">
+                <a href="/berita/pelatihan-umkm-digital/" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors group-hover:translate-x-1 duration-200">
+                  <span>Baca Selengkapnya</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </article>
+        
+          <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+            
+            <!-- Thumbnail Image -->
+            <a href="/berita/pembangunan-jalan-desa-kemiri/" class="relative h-52 overflow-hidden bg-slate-100 block">
+              
+                <img src="/assets/images/galeri-gotong-royong.jpg" alt="Pembangunan Akses Jalan Utama Desa Kemiri Selesai Tepat Waktu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow">
+                  Berita
+                </span>
+              </div>
+            </a>
+
+            <!-- Content Card -->
+            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                  <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  <span>5 Agustus 2026</span>
+                  
+                    <span>•</span>
+                    <span>Humas Pemdes Kemiri</span>
+                  
+                </div>
+
+                <h2 class="text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-2 leading-snug">
+                  <a href="/berita/pembangunan-jalan-desa-kemiri/">
+                    Pembangunan Akses Jalan Utama Desa Kemiri Selesai Tepat Waktu
+                  </a>
+                </h2>
+
+                <p class="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                  Pemerintah Desa Kemiri mengumumkan selesainya pengerjaan jalan perdesaan sepanjang 2,5 kilometer yang mempermudah mobilitas komoditas hasil tani warga.
+                </p>
+              </div>
+
+              <!-- Read More Link -->
+              <div class="pt-4 border-t border-slate-100">
+                <a href="/berita/pembangunan-jalan-desa-kemiri/" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors group-hover:translate-x-1 duration-200">
+                  <span>Baca Selengkapnya</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </article>
+        
+      </div>
+
+      <!-- Pagination Navigation -->
+      
+
+    
+
+  </div>
+</section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300 pt-12 pb-8 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+    <!-- Col 1: Brand & Desc -->
+    <div class="md:col-span-2 space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center text-white font-bold text-xl">
+          K
+        </div>
+        <span class="text-xl font-bold text-white">Desa Kemiri</span>
+      </div>
+      <p class="text-slate-400 text-sm leading-relaxed max-w-md">
+        Portal resmi informasi dan pelayanan publik Pemerintah Desa Kemiri. Mewujudkan desa yang asri, mandiri, berdaya saing, dan sejahtera bagi seluruh warga.
+      </p>
+    </div>
+
+    <!-- Col 2: Navigation -->
+    <div>
+      <h3 class="text-white font-semibold text-sm tracking-wider uppercase mb-4">Navigasi Halaman</h3>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="/" class="hover:text-emerald-400 transition-colors">Halaman Utama</a></li>
+        <li><a href="/profil/" class="hover:text-emerald-400 transition-colors">Profil & Infografis</a></li>
+        <li><a href="/umkm/" class="hover:text-emerald-400 transition-colors">Katalog UMKM</a></li>
+        <li><a href="/galeri/" class="hover:text-emerald-400 transition-colors">Galeri Desa</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 3: Contact & Info -->
+    <div>
+      <h3 class="text-white font-semibold text-sm tracking-wider uppercase mb-4">Kontak & Alamat</h3>
+      <ul class="space-y-2.5 text-sm text-slate-400">
+        <li class="flex items-start gap-2">
+          <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span>Balai Desa Kemiri, Kec. Subah, Kab. Batang, Jawa Tengah</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span>kontak@desakemiri.go.id</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Copyright -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+    <p>&copy; 2026 Pemerintah Desa Kemiri. Hak Cipta Dilindungi.</p>
+    <p>Dikelola dengan Eleventy (11ty) & Decap CMS</p>
+  </div>
+</footer>
+
+
+  <!-- Netlify Identity Script for Admin Login Redirection -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

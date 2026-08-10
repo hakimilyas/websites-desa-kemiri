@@ -85,3 +85,17 @@ collections:
         widget: "select"
         options: ["Pemandangan", "Kegiatan"]
       - { label: "Caption / Keterangan", name: "caption", widget: "text" }
+
+  # e. Berita Desa (Folder Collection -> src/berita/*.md)
+  - name: "berita"
+    label: "Berita Desa"
+    folder: "src/berita"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Tanggal Terbit", name: "date", widget: "datetime" }
+      - { label: "Gambar Cover", name: "cover_image", widget: "image" }
+      - { label: "Ringkasan Singkat", name: "excerpt", widget: "text" }
+      - { label: "Penulis", name: "author", widget: "string", required: false }
+      - { label: "Isi Berita", name: "body", widget: "markdown" }

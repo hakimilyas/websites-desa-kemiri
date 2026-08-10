@@ -13,9 +13,27 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/galeri/*.md");
   });
 
+  // Berita Collection (sorted latest to oldest)
+  eleventyConfig.addCollection("berita", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/berita/*.md").sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+    });
+  });
+
   // Safe JSON Filter for Alpine.js data binding
   eleventyConfig.addFilter("json", function(value) {
     return JSON.stringify(value);
+  });
+
+  // Readable Date Filter in Indonesian
+  eleventyConfig.addFilter("readableDate", function(dateObj) {
+    if (!dateObj) return "";
+    const date = new Date(dateObj);
+    return date.toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
   });
 
   return {
