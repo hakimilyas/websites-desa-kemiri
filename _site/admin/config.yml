@@ -39,6 +39,7 @@ collections:
           - { label: "Narasi Sejarah Lengkap", name: "full_history", widget: "text" }
           - { label: "Link Google Maps", name: "maps_url", widget: "string" }
           - { label: "Deskripsi Geografis", name: "location_text", widget: "text" }
+          - { label: "Peta Potensi Desa", name: "peta_potensi_image", widget: "image", required: false }
           - { label: "Jumlah Dusun", name: "dusun_count", widget: "number", value_type: "int" }
           - { label: "Jumlah RW", name: "rw_count", widget: "number", value_type: "int" }
           - { label: "Jumlah RT", name: "rt_count", widget: "number", value_type: "int" }
