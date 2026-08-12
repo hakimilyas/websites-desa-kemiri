@@ -42,9 +42,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
     <!-- Logo & Brand Name -->
     <a href="/" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-700 to-emerald-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-700/20 group-hover:scale-105 transition-transform">
-        K
-      </div>
+      <img src="/assets/images/Logo-web.png" alt="Logo Desa Kemiri" class="w-10 h-10 object-contain group-hover:scale-105 transition-transform">
       <div>
         <span class="block text-lg font-bold text-slate-900 leading-none tracking-tight">Desa Kemiri</span>
         <span class="text-xs text-emerald-600 font-medium tracking-wide uppercase">Website Resmi</span>
@@ -116,30 +114,16 @@
   <!-- Main Content -->
   <main class="flex-grow">
     
-<!-- Header Section with YouTube Video Embed -->
-<section class="bg-slate-900 text-white py-16">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-    <div class="text-center space-y-3">
-      <span class="px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-        Produk Lokal Khas Desa
-      </span>
-      <h1 class="text-4xl font-extrabold tracking-tight">Katalog UMKM Desa Kemiri</h1>
-      <p class="text-slate-300 text-base max-w-2xl mx-auto">
-        Saksikan video profil pemberdayaan ekonomi dan jelajahi berbagai produk unggulan warga desa kami.
-      </p>
+<!-- Header Section -->
+<section class="bg-gradient-to-b from-emerald-900 to-slate-900 text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+    <div class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-500/30">
+      Produk Lokal Khas Desa
     </div>
-
-    <!-- Video YouTube Header Embed -->
-    <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-700 aspect-video bg-black">
-      <iframe 
-        class="w-full h-full" 
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-        title="Profil UMKM Desa Kemiri" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
+    <h1 class="text-4xl font-extrabold tracking-tight">Katalog UMKM Desa Kemiri</h1>
+    <p class="text-emerald-100 text-lg max-w-2xl mx-auto">
+      Jelajahi berbagai produk unggulan dan potensi Usaha Mikro, Kecil, dan Menengah (UMKM) warga Desa Kemiri.
+    </p>
   </div>
 </section>
 
@@ -153,7 +137,7 @@
         <p class="text-slate-600 text-sm">Klik kartu produk untuk melihat detail atau mengunjungi halaman resmi usahanya.</p>
       </div>
       <div class="text-xs text-slate-500">
-        Menampilkan 4 Usaha Lokal
+        Menampilkan 16 Usaha Lokal
       </div>
     </div>
 
@@ -165,24 +149,17 @@
           
           <!-- Thumbnail Image -->
           <div class="relative h-48 overflow-hidden bg-slate-100">
-            <img src="/assets/images/umkm-keripik.jpg" alt="Keripik Singkong &amp; Pisang Kemiri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute top-3 right-3">
-              
-                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow">
-                  Detail Popup
-                </span>
-              
-            </div>
+            <img src="/assets/images/Ndy Bouquet.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Ndy Bouquet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
 
           <!-- Content -->
           <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
             <div>
               <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
-                Keripik Singkong &amp; Pisang Kemiri
+                Ndy Bouquet
               </h3>
               <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
-                Olahan keripik renyah rasa gurih alami khas Desa Kemiri tanpa bahan pengawet.
+                Menyediakan berbagai macam rangkaian buket untuk berbagai kebutuhan. Produk buket dapat digunakan sebagai hadiah untuk ulang tahun, wisuda, perayaan, maupun momen spesial lainnya. Dengan rangkaian yang menarik, Ndy Bouquet menjadi salah satu pilihan bagi masyarakat yang ingin memberikan hadiah berkesan.
               </p>
             </div>
 
@@ -190,13 +167,14 @@
             
               <!-- Tipe B: Alpine.js Modal Trigger -->
               <button @click="activeModal = {
-                        name: 'Keripik Singkong &amp; Pisang Kemiri',
-                        thumbnail: '/assets/images/umkm-keripik.jpg',
-                        description: 'Olahan keripik renyah rasa gurih alami khas Desa Kemiri tanpa bahan pengawet.',
-                        maps_location: 'https://maps.google.com/?q=-7.201,110.371',
-                        products: [&quot;Keripik Singkong Balado&quot;,&quot;Keripik Pisang Caramel&quot;,&quot;Keripik Talas Gurih&quot;],
-                        shopee: 'https://shopee.co.id',
-                        tiktok: 'https://tiktok.com'
+                        name: 'Ndy Bouquet',
+                        thumbnail: '/assets/images/Ndy Bouquet.JPG',
+                        description: 'Menyediakan berbagai macam rangkaian buket untuk berbagai kebutuhan. Produk buket dapat digunakan sebagai hadiah untuk ulang tahun, wisuda, perayaan, maupun momen spesial lainnya. Dengan rangkaian yang menarik, Ndy Bouquet menjadi salah satu pilihan bagi masyarakat yang ingin memberikan hadiah berkesan.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: ''
                       }"
                       type="button" 
                       class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
@@ -213,63 +191,17 @@
           
           <!-- Thumbnail Image -->
           <div class="relative h-48 overflow-hidden bg-slate-100">
-            <img src="/assets/images/umkm-kopi.jpg" alt="Kopi Robusta Organik Kemiri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute top-3 right-3">
-              
-                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white shadow">
-                  Google Sites
-                </span>
-              
-            </div>
+            <img src="/assets/images/nadya-kosmetik.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Nadya Kosmetik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
 
           <!-- Content -->
           <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
             <div>
               <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
-                Kopi Robusta Organik Kemiri
+                Nadya Kosmetik
               </h3>
               <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
-                Kopi petik merah asli lereng desa dengan cita rasa khas dan aroma herbal yang kuat.
-              </p>
-            </div>
-
-            <!-- Action Buttons based on Interaction Type -->
-            
-              <!-- Tipe A: Direct External Link -->
-              <a href="https://sites.google.com/view/kopikemiorganik" target="_blank" rel="noopener noreferrer" 
-                 class="w-full py-2.5 px-4 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors">
-                <span>Kunjungi Website (Sites)</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-            
-
-          </div>
-        </div>
-      
-        
-        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
-          
-          <!-- Thumbnail Image -->
-          <div class="relative h-48 overflow-hidden bg-slate-100">
-            <img src="/assets/images/umkm-batik.jpg" alt="Batik Tulis Motif Leaf &amp; Nut" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute top-3 right-3">
-              
-                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow">
-                  Detail Popup
-                </span>
-              
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
-            <div>
-              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
-                Batik Tulis Motif Leaf &amp; Nut
-              </h3>
-              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
-                Karya seni kain batik tulis pewarna alam khas perajin Desa Kemiri.
+                Menyediakan berbagai produk kosmetik dan kebutuhan perawatan diri. Berbagai produk ditujukan untuk membantu memenuhi kebutuhan masyarakat dalam menunjang penampilan sehari-hari. Nadya Kosmetik hadir sebagai salah satu pilihan masyarakat untuk mendapatkan produk kecantikan dan perawatan diri.
               </p>
             </div>
 
@@ -277,13 +209,14 @@
             
               <!-- Tipe B: Alpine.js Modal Trigger -->
               <button @click="activeModal = {
-                        name: 'Batik Tulis Motif Leaf &amp; Nut',
-                        thumbnail: '/assets/images/umkm-batik.jpg',
-                        description: 'Karya seni kain batik tulis pewarna alam khas perajin Desa Kemiri.',
-                        maps_location: 'https://maps.google.com/?q=-7.202,110.372',
-                        products: [&quot;Kain Batik Tulis Motif Kemiri&quot;,&quot;Kemeja Batik Pria&quot;,&quot;Selendang Pewarna Alami&quot;],
-                        shopee: 'https://shopee.co.id',
-                        tiktok: 'https://tiktok.com'
+                        name: 'Nadya Kosmetik',
+                        thumbnail: '/assets/images/nadya-kosmetik.JPG',
+                        description: 'Menyediakan berbagai produk kosmetik dan kebutuhan perawatan diri. Berbagai produk ditujukan untuk membantu memenuhi kebutuhan masyarakat dalam menunjang penampilan sehari-hari. Nadya Kosmetik hadir sebagai salah satu pilihan masyarakat untuk mendapatkan produk kecantikan dan perawatan diri.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: 'https://sites.google.com/view/GANTI-DENGAN-LINK-ASLI'
                       }"
                       type="button" 
                       class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
@@ -300,35 +233,584 @@
           
           <!-- Thumbnail Image -->
           <div class="relative h-48 overflow-hidden bg-slate-100">
-            <img src="/assets/images/umkm-madu.jpg" alt="Madu Murni Hutan Kemiri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute top-3 right-3">
-              
-                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white shadow">
-                  Google Sites
-                </span>
-              
-            </div>
+            <img src="/assets/images/Anugrah Aquarium.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Anugrah Akuarium (Ust. Endi)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
 
           <!-- Content -->
           <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
             <div>
               <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
-                Madu Murni Hutan Kemiri
+                Anugrah Akuarium (Ust. Endi)
               </h3>
               <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
-                Madu asli hasil ternak lebah madu liar tanpa campuran pemanis buatan.
+                Usaha yang bergerak dalam penyediaan berbagai kebutuhan akuarium dan ikan hias. Usaha ini menyediakan perlengkapan yang dapat menunjang kebutuhan masyarakat dalam memelihara ikan dan menghias akuarium. Anugrah Akuarium menjadi salah satu pilihan bagi pecinta ikan hias dan masyarakat yang membutuhkan perlengkapan akuarium.
               </p>
             </div>
 
             <!-- Action Buttons based on Interaction Type -->
             
-              <!-- Tipe A: Direct External Link -->
-              <a href="https://sites.google.com/view/madumurnikemiri" target="_blank" rel="noopener noreferrer" 
-                 class="w-full py-2.5 px-4 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors">
-                <span>Kunjungi Website (Sites)</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Anugrah Akuarium (Ust. Endi)',
+                        thumbnail: '/assets/images/Anugrah Aquarium.JPG',
+                        description: 'Usaha yang bergerak dalam penyediaan berbagai kebutuhan akuarium dan ikan hias. Usaha ini menyediakan perlengkapan yang dapat menunjang kebutuhan masyarakat dalam memelihara ikan dan menghias akuarium. Anugrah Akuarium menjadi salah satu pilihan bagi pecinta ikan hias dan masyarakat yang membutuhkan perlengkapan akuarium.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: 'https://sites.google.com/view/GANTI-DENGAN-LINK-ASLI'
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Toko Dede Retail.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Toko Dedeh Ritel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Toko Dedeh Ritel
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Menyediakan berbagai kebutuhan sehari-hari masyarakat. Beragam barang kebutuhan rumah tangga dan keperluan lainnya tersedia untuk membantu memenuhi kebutuhan warga sekitar. Kehadiran Toko Dedeh Ritel memberikan kemudahan bagi masyarakat dalam memperoleh kebutuhan sehari-hari.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Toko Dedeh Ritel',
+                        thumbnail: '/assets/images/Toko Dede Retail.JPG',
+                        description: 'Menyediakan berbagai kebutuhan sehari-hari masyarakat. Beragam barang kebutuhan rumah tangga dan keperluan lainnya tersedia untuk membantu memenuhi kebutuhan warga sekitar. Kehadiran Toko Dedeh Ritel memberikan kemudahan bagi masyarakat dalam memperoleh kebutuhan sehari-hari.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: ''
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Barokah Aquarium.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Barokah Aquarium" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Barokah Aquarium
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Menyediakan berbagai kebutuhan untuk pemeliharaan ikan dan akuarium. Produk yang tersedia meliputi perlengkapan akuarium serta berbagai kebutuhan pendukung untuk ikan hias. Barokah Aquarium dapat menjadi pilihan bagi masyarakat yang memiliki hobi memelihara ikan dan menghias akuarium.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Barokah Aquarium',
+                        thumbnail: '/assets/images/Barokah Aquarium.JPG',
+                        description: 'Menyediakan berbagai kebutuhan untuk pemeliharaan ikan dan akuarium. Produk yang tersedia meliputi perlengkapan akuarium serta berbagai kebutuhan pendukung untuk ikan hias. Barokah Aquarium dapat menjadi pilihan bagi masyarakat yang memiliki hobi memelihara ikan dan menghias akuarium.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: 'https://sites.google.com/view/GANTI-DENGAN-LINK-ASLI'
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Apotek Syana Farma.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Apotek Syana Farma" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Apotek Syana Farma
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Menyediakan berbagai kebutuhan obat-obatan dan produk kesehatan. Usaha ini hadir untuk membantu masyarakat memperoleh kebutuhan kesehatan dengan lebih mudah. Apotek Syana Farma menjadi salah satu fasilitas yang mendukung pemenuhan kebutuhan kesehatan masyarakat sekitar.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Apotek Syana Farma',
+                        thumbnail: '/assets/images/Apotek Syana Farma.JPG',
+                        description: 'Menyediakan berbagai kebutuhan obat-obatan dan produk kesehatan. Usaha ini hadir untuk membantu masyarakat memperoleh kebutuhan kesehatan dengan lebih mudah. Apotek Syana Farma menjadi salah satu fasilitas yang mendukung pemenuhan kebutuhan kesehatan masyarakat sekitar.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: ''
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Toko Arko.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Toko Arko" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Toko Arko
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Menyediakan berbagai kebutuhan seperti spare part motor, alat-alat listrik, perkakas, dan alat tulis. Beragam produk tersedia untuk memenuhi kebutuhan perbaikan kendaraan, pekerjaan rumah tangga, hingga keperluan sekolah dan perkantoran. Toko Arko hadir sebagai salah satu pilihan masyarakat untuk mendapatkan berbagai perlengkapan dan kebutuhan sehari-hari.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Toko Arko',
+                        thumbnail: '/assets/images/Toko Arko.JPG',
+                        description: 'Menyediakan berbagai kebutuhan seperti spare part motor, alat-alat listrik, perkakas, dan alat tulis. Beragam produk tersedia untuk memenuhi kebutuhan perbaikan kendaraan, pekerjaan rumah tangga, hingga keperluan sekolah dan perkantoran. Toko Arko hadir sebagai salah satu pilihan masyarakat untuk mendapatkan berbagai perlengkapan dan kebutuhan sehari-hari.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: ''
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Kue-kering=ibu-ikah.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Toko Kue Kering Ibu Ikah" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Toko Kue Kering Ibu Ikah
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Menyediakan berbagai macam makanan tradisional dan camilan. Produk yang ditawarkan meliputi kue kering, rengginang, kue bawang, serta berbagai jenis kue basah. Beragam pilihan produk tersebut cocok untuk camilan keluarga, hidangan acara, maupun oleh-oleh.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Toko Kue Kering Ibu Ikah',
+                        thumbnail: '/assets/images/Kue-kering=ibu-ikah.JPG',
+                        description: 'Menyediakan berbagai macam makanan tradisional dan camilan. Produk yang ditawarkan meliputi kue kering, rengginang, kue bawang, serta berbagai jenis kue basah. Beragam pilihan produk tersebut cocok untuk camilan keluarga, hidangan acara, maupun oleh-oleh.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: 'https://sites.google.com/view/GANTI-DENGAN-LINK-ASLI'
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Kue-kering-ibu-eneng.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Toko Kue Kering Ibu Eneng" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Toko Kue Kering Ibu Eneng
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Menyediakan berbagai macam camilan tradisional. Produk yang ditawarkan antara lain peyek, kue bawang, dan opak dengan cita rasa yang cocok dinikmati sebagai camilan. Berbagai produk tersebut dapat menjadi pilihan untuk konsumsi keluarga maupun hidangan dalam berbagai acara.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Toko Kue Kering Ibu Eneng',
+                        thumbnail: '/assets/images/Kue-kering-ibu-eneng.JPG',
+                        description: 'Menyediakan berbagai macam camilan tradisional. Produk yang ditawarkan antara lain peyek, kue bawang, dan opak dengan cita rasa yang cocok dinikmati sebagai camilan. Berbagai produk tersebut dapat menjadi pilihan untuk konsumsi keluarga maupun hidangan dalam berbagai acara.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: 'https://sites.google.com/view/GANTI-DENGAN-LINK-ASLI'
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Panda Besi Empu Ujang.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Pandai Besi Empu Ujang" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Pandai Besi Empu Ujang
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Pandai Besi Empu Ujang merupakan usaha yang bergerak dalam bidang pengolahan dan pembuatan berbagai peralatan berbahan logam. Dengan keterampilan pandai besi, usaha ini menghasilkan berbagai produk yang dapat digunakan untuk kebutuhan masyarakat. Usaha ini juga menjadi bagian dari keterampilan dan potensi kerajinan lokal yang berkembang di masyarakat.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Pandai Besi Empu Ujang',
+                        thumbnail: '/assets/images/Panda Besi Empu Ujang.JPG',
+                        description: 'Pandai Besi Empu Ujang merupakan usaha yang bergerak dalam bidang pengolahan dan pembuatan berbagai peralatan berbahan logam. Dengan keterampilan pandai besi, usaha ini menghasilkan berbagai produk yang dapat digunakan untuk kebutuhan masyarakat. Usaha ini juga menjadi bagian dari keterampilan dan potensi kerajinan lokal yang berkembang di masyarakat.',
+                        maps_location: 'https://maps.app.goo.gl/RoRdV1ZWtiL66X7M9',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: 'https://sites.google.com/apps.ipb.ac.id/pandai-besi-empu-ujang/home?authuser=0'
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Kue-kering-big-family.jpg" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Toko Kue Keluarga Ibu Rohati &amp; Ibu Neri (Kue Kering Big Family)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Toko Kue Keluarga Ibu Rohati &amp; Ibu Neri (Kue Kering Big Family)
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Menyediakan berbagai macam makanan dan camilan tradisional. Produk yang ditawarkan meliputi rengginang, renggining, kue picis, kue wajik, peyek, dan kue bawang. Beragam pilihan tersebut cocok untuk camilan keluarga, hidangan acara, maupun sebagai oleh-oleh khas.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Toko Kue Keluarga Ibu Rohati &amp; Ibu Neri (Kue Kering Big Family)',
+                        thumbnail: '/assets/images/Kue-kering-big-family.jpg',
+                        description: 'Menyediakan berbagai macam makanan dan camilan tradisional. Produk yang ditawarkan meliputi rengginang, renggining, kue picis, kue wajik, peyek, dan kue bawang. Beragam pilihan tersebut cocok untuk camilan keluarga, hidangan acara, maupun sebagai oleh-oleh khas.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: 'https://sites.google.com/view/GANTI-DENGAN-LINK-ASLI'
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/toko cat kiloan.jpg" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Toko Cat Kiloan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Toko Cat Kiloan
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Menyediakan berbagai pilihan cat dan kebutuhan untuk pekerjaan pengecatan. Produk yang tersedia dapat digunakan untuk kebutuhan rumah, bangunan, maupun berbagai pekerjaan lainnya. Toko Cat Kiloan membantu masyarakat mendapatkan kebutuhan pengecatan dengan lebih mudah dan praktis.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Toko Cat Kiloan',
+                        thumbnail: '/assets/images/toko cat kiloan.jpg',
+                        description: 'Menyediakan berbagai pilihan cat dan kebutuhan untuk pekerjaan pengecatan. Produk yang tersedia dapat digunakan untuk kebutuhan rumah, bangunan, maupun berbagai pekerjaan lainnya. Toko Cat Kiloan membantu masyarakat mendapatkan kebutuhan pengecatan dengan lebih mudah dan praktis.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: ''
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Martabak Bangka 75.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Toko Martabak Bangka 75" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Toko Martabak Bangka 75
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Martabak Bangka 75 merupakan usaha kuliner yang menyediakan martabak sebagai pilihan makanan dan camilan. Martabak dapat dinikmati bersama keluarga maupun teman dalam berbagai kesempatan. Usaha ini hadir untuk menyediakan pilihan kuliner yang cocok dinikmati sebagai hidangan santai maupun untuk berbagi.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Toko Martabak Bangka 75',
+                        thumbnail: '/assets/images/Martabak Bangka 75.JPG',
+                        description: 'Martabak Bangka 75 merupakan usaha kuliner yang menyediakan martabak sebagai pilihan makanan dan camilan. Martabak dapat dinikmati bersama keluarga maupun teman dalam berbagai kesempatan. Usaha ini hadir untuk menyediakan pilihan kuliner yang cocok dinikmati sebagai hidangan santai maupun untuk berbagi.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: ''
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Sate Maranggi kang Yayan.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Sate Maranggi Kang Yayan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Sate Maranggi Kang Yayan
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Sate Maranggi Kang Yayan merupakan usaha kuliner yang menyediakan sate maranggi sebagai menu andalan. Hidangan ini cocok dinikmati sebagai makanan sehari-hari maupun bersama keluarga dan teman. Sate Maranggi Kang Yayan menjadi salah satu pilihan kuliner bagi masyarakat yang ingin menikmati hidangan sate di lingkungan sekitar.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Sate Maranggi Kang Yayan',
+                        thumbnail: '/assets/images/Sate Maranggi kang Yayan.JPG',
+                        description: 'Sate Maranggi Kang Yayan merupakan usaha kuliner yang menyediakan sate maranggi sebagai menu andalan. Hidangan ini cocok dinikmati sebagai makanan sehari-hari maupun bersama keluarga dan teman. Sate Maranggi Kang Yayan menjadi salah satu pilihan kuliner bagi masyarakat yang ingin menikmati hidangan sate di lingkungan sekitar.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: ''
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Es Kelapa Muda Mantul.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Es Kelapa Muda Mantul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Es Kelapa Muda Mantul
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Es Kelapa Muda Mantul merupakan usaha yang menyediakan minuman berbahan dasar kelapa muda. Minuman ini cocok dinikmati untuk menemani aktivitas sehari-hari, terutama saat membutuhkan minuman yang segar. Es Kelapa Muda Mantul menjadi salah satu pilihan minuman bagi masyarakat yang menyukai olahan kelapa muda.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Es Kelapa Muda Mantul',
+                        thumbnail: '/assets/images/Es Kelapa Muda Mantul.JPG',
+                        description: 'Es Kelapa Muda Mantul merupakan usaha yang menyediakan minuman berbahan dasar kelapa muda. Minuman ini cocok dinikmati untuk menemani aktivitas sehari-hari, terutama saat membutuhkan minuman yang segar. Es Kelapa Muda Mantul menjadi salah satu pilihan minuman bagi masyarakat yang menyukai olahan kelapa muda.',
+                        maps_location: 'https://maps.app.goo.gl/4net4fYQ1DmcD9ni9',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: ''
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            
+
+          </div>
+        </div>
+      
+        
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          
+          <!-- Thumbnail Image -->
+          <div class="relative h-48 overflow-hidden bg-slate-100">
+            <img src="/assets/images/Bakso BJ.JPG" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="Bakso Balong Jambe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
+                Bakso Balong Jambe
+              </h3>
+              <p class="text-slate-600 text-xs mt-2 leading-relaxed line-clamp-3">
+                Bakso Balong Jambe merupakan usaha kuliner yang menyediakan hidangan bakso bagi masyarakat. Bakso dapat dinikmati sebagai pilihan makanan yang cocok untuk makan bersama keluarga maupun teman. Usaha ini menjadi salah satu pilihan kuliner bagi masyarakat yang ingin menikmati hidangan bakso di sekitar wilayah Balong Jambe.
+              </p>
+            </div>
+
+            <!-- Action Buttons based on Interaction Type -->
+            
+              <!-- Tipe B: Alpine.js Modal Trigger -->
+              <button @click="activeModal = {
+                        name: 'Bakso Balong Jambe',
+                        thumbnail: '/assets/images/Bakso BJ.JPG',
+                        description: 'Bakso Balong Jambe merupakan usaha kuliner yang menyediakan hidangan bakso bagi masyarakat. Bakso dapat dinikmati sebagai pilihan makanan yang cocok untuk makan bersama keluarga maupun teman. Usaha ini menjadi salah satu pilihan kuliner bagi masyarakat yang ingin menikmati hidangan bakso di sekitar wilayah Balong Jambe.',
+                        maps_location: 'GANTI-DENGAN-LINK-GOOGLE-MAPS',
+                        products: [],
+                        shopee: '',
+                        tiktok: '',
+                        google_sites: ''
+                      }"
+                      type="button" 
+                      class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
+                <span>Lihat Detail Products</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
             
 
           </div>
@@ -369,7 +851,7 @@
         
         <!-- Modal Content Header -->
         <div class="relative h-44 bg-slate-900">
-          <img :src="activeModal ? activeModal.thumbnail : ''" :alt="activeModal ? activeModal.name : ''" class="w-full h-full object-cover opacity-60">
+          <img :src="activeModal && activeModal.thumbnail ? activeModal.thumbnail : '/assets/images/hero-kemiri.jpg'" onerror="this.src='/assets/images/hero-kemiri.jpg'" :alt="activeModal ? activeModal.name : ''" class="w-full h-full object-cover opacity-60">
           <button @click="activeModal = null" type="button" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors">
             ✕
           </button>
@@ -387,39 +869,25 @@
             <p class="text-slate-600 text-sm leading-relaxed" x-text="activeModal ? activeModal.description : ''"></p>
           </div>
 
-          <!-- Daftar Produk -->
-          <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Daftar Produk Dijual</h4>
-            <ul class="space-y-1.5 text-sm text-slate-700">
-              <template x-for="(prod, i) in (activeModal ? activeModal.products : [])" :key="i">
-                <li class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                  <span x-text="prod"></span>
-                </li>
-              </template>
-            </ul>
-          </div>
-
           <!-- Quick Action Marketplace Links -->
-          <div class="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
-            <!-- Google Maps -->
-            <a :href="activeModal ? activeModal.maps_location : '#'" target="_blank" rel="noopener"
-               class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2">
+          <div x-show="activeModal && (activeModal.maps_location || activeModal.google_sites || activeModal.shopee)" class="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+            <!-- 1. Google Maps (full-width) -->
+            <a x-show="activeModal && activeModal.maps_location" :href="activeModal ? activeModal.maps_location : '#'" target="_blank" rel="noopener noreferrer"
+               class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2 transition-colors">
               <span>📍 Buka Lokasi di Google Maps</span>
             </a>
 
-            <!-- Shopee & TikTok links -->
-            <div class="grid grid-cols-2 gap-2">
-              <a :href="activeModal && activeModal.shopee ? activeModal.shopee : '#'" target="_blank" rel="noopener"
-                 class="py-2.5 px-3 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-600 font-semibold text-xs text-center flex items-center justify-center gap-1.5">
-                <span>🛒 Toko Shopee</span>
-              </a>
+            <!-- 2. Google Sites Website (full-width) -->
+            <a x-show="activeModal && activeModal.google_sites" :href="activeModal ? activeModal.google_sites : '#'" target="_blank" rel="noopener noreferrer"
+               class="w-full py-2.5 px-4 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold text-xs flex items-center justify-center gap-2 transition-colors">
+              <span>🌐 Kunjungi Google Sites</span>
+            </a>
 
-              <a :href="activeModal && activeModal.tiktok ? activeModal.tiktok : '#'" target="_blank" rel="noopener"
-                 class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs text-center flex items-center justify-center gap-1.5">
-                <span>🎵 Toko TikTok</span>
-              </a>
-            </div>
+            <!-- 3. Toko Shopee (full-width) -->
+            <a x-show="activeModal && activeModal.shopee" :href="activeModal ? activeModal.shopee : '#'" target="_blank" rel="noopener noreferrer"
+               class="w-full py-2.5 px-4 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-600 font-semibold text-xs flex items-center justify-center gap-2 transition-colors">
+              <span>🛒 Toko Shopee</span>
+            </a>
           </div>
 
         </div>
@@ -433,14 +901,12 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-300 pt-12 pb-8 border-t border-slate-800">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+  <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
     <!-- Col 1: Brand & Desc -->
     <div class="md:col-span-2 space-y-4">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center text-white font-bold text-xl">
-          K
-        </div>
+        <img src="/assets/images/Logo-web.png" alt="Logo Desa Kemiri" class="w-10 h-10 object-contain">
         <span class="text-xl font-bold text-white">Desa Kemiri</span>
       </div>
       <p class="text-slate-400 text-sm leading-relaxed max-w-md">
@@ -465,20 +931,14 @@
       <ul class="space-y-2.5 text-sm text-slate-400">
         <li class="flex items-start gap-2">
           <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          <span>Balai Desa Kemiri, Kec. Subah, Kab. Batang, Jawa Tengah</span>
+          <span>Balai Desa Kemiri, Kec. Jayakerta, Kab. Karawang, Jawa Barat</span>
         </li>
         <li class="flex items-center gap-2">
           <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <span>kontak@desakemiri.go.id</span>
+          <span>[EMAIL_ADDRESS]</span>
         </li>
       </ul>
     </div>
-  </div>
-
-  <!-- Bottom Copyright -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-    <p>&copy; 2026 Pemerintah Desa Kemiri. Hak Cipta Dilindungi.</p>
-    <p>Dikelola dengan Eleventy (11ty) & Decap CMS</p>
   </div>
 </footer>
 

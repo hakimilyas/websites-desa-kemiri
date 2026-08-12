@@ -1,12 +1,8 @@
 ---
 layout: base.njk
 title: "Berita & Pengumuman Desa"
+permalink: "/berita/index.html"
 description: "Kabar terbaru, informasi kegiatan, dan pengumuman resmi dari Pemerintah Desa Kemiri."
-pagination:
-  data: collections.berita
-  size: 9
-  alias: beritaList
-permalink: "/berita/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
 ---
 
 <!-- Header Section -->
@@ -26,7 +22,9 @@ permalink: "/berita/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNum
 <section class="py-16 bg-slate-50 min-h-[60vh]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    {% if beritaList.length > 0 %}
+    {% set beritaList = collections.berita | reverse %}
+
+    {% if beritaList and beritaList.length > 0 %}
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {% for post in beritaList %}
           <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
@@ -87,33 +85,15 @@ permalink: "/berita/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNum
         {% endfor %}
       </div>
 
-      <!-- Pagination Navigation -->
-      {% if pagination.pages.length > 1 %}
-        <nav class="mt-12 flex justify-center items-center gap-2" aria-label="Navigasi Halaman">
-          {% if pagination.href.previous %}
-            <a href="{{ pagination.href.previous }}" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 text-sm font-semibold hover:bg-slate-50 transition-colors">
-              ← Sebelumnya
-            </a>
-          {% endif %}
-
-          {% for pageHref in pagination.hrefs %}
-            <a href="{{ pageHref }}" 
-               class="px-4 py-2 rounded-xl text-sm font-semibold transition-all {% if page.url == pageHref %}bg-emerald-700 text-white shadow-md{% else %}bg-white border border-slate-200 text-slate-700 hover:bg-slate-50{% endif %}">
-              {{ loop.index }}
-            </a>
-          {% endfor %}
-
-          {% if pagination.href.next %}
-            <a href="{{ pagination.href.next }}" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 text-sm font-semibold hover:bg-slate-50 transition-colors">
-              Selanjutnya →
-            </a>
-          {% endif %}
-        </nav>
-      {% endif %}
-
     {% else %}
-      <div class="text-center py-16 bg-white rounded-3xl border border-slate-200 max-w-md mx-auto">
-        <p class="text-slate-500 font-medium">Belum ada berita yang diterbitkan.</p>
+      <div class="text-center py-16 px-6 bg-white rounded-3xl border border-slate-200 max-w-md mx-auto shadow-sm space-y-3">
+        <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+          📰
+        </div>
+        <h3 class="text-lg font-bold text-slate-900">Belum Ada Berita</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          Belum ada artikel berita atau pengumuman yang diterbitkan saat ini. Silakan kembali lagi nanti untuk mendapatkan pembaruan informasi Desa Kemiri.
+        </p>
       </div>
     {% endif %}
 

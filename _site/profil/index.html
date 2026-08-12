@@ -42,9 +42,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
     <!-- Logo & Brand Name -->
     <a href="/" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-700 to-emerald-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-700/20 group-hover:scale-105 transition-transform">
-        K
-      </div>
+      <img src="/assets/images/Logo-web.png" alt="Logo Desa Kemiri" class="w-10 h-10 object-contain group-hover:scale-105 transition-transform">
       <div>
         <span class="block text-lg font-bold text-slate-900 leading-none tracking-tight">Desa Kemiri</span>
         <span class="text-xs text-emerald-600 font-medium tracking-wide uppercase">Website Resmi</span>
@@ -177,7 +175,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       
       <!-- Alpine.js Photo Carousel (Rasio 1:1) -->
-      <div class="lg:col-span-5" x-data="{ activeSlide: 0, slides: [{&quot;image&quot;:&quot;/assets/images/profil-carousel-1.jpg&quot;,&quot;caption&quot;:&quot;Pemandangan Sawah dan Perbukitan Desa Kemiri&quot;},{&quot;image&quot;:&quot;/assets/images/profil-carousel-2.jpg&quot;,&quot;caption&quot;:&quot;Kegiatan Balai Desa &amp; Kebersamaan Warga&quot;},{&quot;image&quot;:&quot;/assets/images/profil-carousel-3.jpg&quot;,&quot;caption&quot;:&quot;Sentra Kerajinan dan UMKM Lokal Desa&quot;}] }">
+      <div class="lg:col-span-5" x-data="{ activeSlide: 0, slides: [{&quot;image&quot;:&quot;/assets/images/Galeri 1.JPG&quot;,&quot;caption&quot;:&quot;Dokumentasi Suasana Desa Kemiri - Foto 1&quot;},{&quot;image&quot;:&quot;/assets/images/Galeri 2.JPG&quot;,&quot;caption&quot;:&quot;Dokumentasi Kebersamaan Warga Desa Kemiri - Foto 2&quot;},{&quot;image&quot;:&quot;/assets/images/Galeri 3.JPG&quot;,&quot;caption&quot;:&quot;Pemandangan &amp; Wilayah Desa Kemiri - Foto 3&quot;}] }">
         <div class="relative rounded-2xl overflow-hidden shadow-xl aspect-square bg-slate-200 border border-slate-300">
           <template x-for="(slide, index) in slides" :key="index">
             <div x-show="activeSlide === index" 
@@ -268,11 +266,11 @@
     
       <!-- Peta Potensi Desa Image Container -->
       <div class="mt-8 bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-lg space-y-3">
-        <div class="overflow-hidden rounded-xl bg-slate-100 border border-slate-200">
+        <div class="overflow-hidden rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center">
           <img src="/assets/images/kemiri-asik.jpg" 
                alt="Peta potensi dan sebaran UMKM Desa Kemiri" 
                loading="lazy" 
-               class="w-full h-auto object-cover max-h-[600px] w-full">
+               class="w-full h-auto object-contain">
         </div>
         <p class="text-center text-xs sm:text-sm font-semibold text-slate-500 italic">
           🗺️ Peta Potensi & Sebaran Wilayah Desa Kemiri
@@ -285,14 +283,12 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-300 pt-12 pb-8 border-t border-slate-800">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+  <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
     <!-- Col 1: Brand & Desc -->
     <div class="md:col-span-2 space-y-4">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center text-white font-bold text-xl">
-          K
-        </div>
+        <img src="/assets/images/Logo-web.png" alt="Logo Desa Kemiri" class="w-10 h-10 object-contain">
         <span class="text-xl font-bold text-white">Desa Kemiri</span>
       </div>
       <p class="text-slate-400 text-sm leading-relaxed max-w-md">
@@ -317,20 +313,14 @@
       <ul class="space-y-2.5 text-sm text-slate-400">
         <li class="flex items-start gap-2">
           <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          <span>Balai Desa Kemiri, Kec. Subah, Kab. Batang, Jawa Tengah</span>
+          <span>Balai Desa Kemiri, Kec. Jayakerta, Kab. Karawang, Jawa Barat</span>
         </li>
         <li class="flex items-center gap-2">
           <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <span>kontak@desakemiri.go.id</span>
+          <span>[EMAIL_ADDRESS]</span>
         </li>
       </ul>
     </div>
-  </div>
-
-  <!-- Bottom Copyright -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-    <p>&copy; 2026 Pemerintah Desa Kemiri. Hak Cipta Dilindungi.</p>
-    <p>Dikelola dengan Eleventy (11ty) & Decap CMS</p>
   </div>
 </footer>
 

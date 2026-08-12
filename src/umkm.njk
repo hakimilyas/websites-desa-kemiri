@@ -5,30 +5,16 @@ permalink: "/umkm/index.html"
 description: "Katalog Usaha Mikro, Kecil, dan Menengah (UMKM) Desa Kemiri. Produk olahan makanan, kerajinan, dan komoditas pertanian."
 ---
 
-<!-- Header Section with YouTube Video Embed -->
-<section class="bg-slate-900 text-white py-16">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-    <div class="text-center space-y-3">
-      <span class="px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-        Produk Lokal Khas Desa
-      </span>
-      <h1 class="text-4xl font-extrabold tracking-tight">Katalog UMKM Desa Kemiri</h1>
-      <p class="text-slate-300 text-base max-w-2xl mx-auto">
-        Saksikan video profil pemberdayaan ekonomi dan jelajahi berbagai produk unggulan warga desa kami.
-      </p>
+<!-- Header Section -->
+<section class="bg-gradient-to-b from-emerald-900 to-slate-900 text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+    <div class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-500/30">
+      Produk Lokal Khas Desa
     </div>
-
-    <!-- Video YouTube Header Embed -->
-    <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-700 aspect-video bg-black">
-      <iframe 
-        class="w-full h-full" 
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-        title="Profil UMKM Desa Kemiri" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
+    <h1 class="text-4xl font-extrabold tracking-tight">Katalog UMKM Desa Kemiri</h1>
+    <p class="text-emerald-100 text-lg max-w-2xl mx-auto">
+      Jelajahi berbagai produk unggulan dan potensi Usaha Mikro, Kecil, dan Menengah (UMKM) warga Desa Kemiri.
+    </p>
   </div>
 </section>
 
@@ -54,18 +40,7 @@ description: "Katalog Usaha Mikro, Kecil, dan Menengah (UMKM) Desa Kemiri. Produ
           
           <!-- Thumbnail Image -->
           <div class="relative h-48 overflow-hidden bg-slate-100">
-            <img src="{{ data.thumbnail }}" alt="{{ data.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute top-3 right-3">
-              {% if data.link_type == 'direct' %}
-                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white shadow">
-                  Google Sites
-                </span>
-              {% else %}
-                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white shadow">
-                  Detail Popup
-                </span>
-              {% endif %}
-            </div>
+            <img src="{% if data.thumbnail and data.thumbnail != 'GANTI-DENGAN-URL-GAMBAR' %}{{ data.thumbnail }}{% else %}/assets/images/hero-kemiri.jpg{% endif %}" onerror="this.src='/assets/images/hero-kemiri.jpg'" alt="{{ data.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           </div>
 
           <!-- Content -->
@@ -91,12 +66,13 @@ description: "Katalog Usaha Mikro, Kecil, dan Menengah (UMKM) Desa Kemiri. Produ
               <!-- Tipe B: Alpine.js Modal Trigger -->
               <button @click="activeModal = {
                         name: '{{ data.name | escape }}',
-                        thumbnail: '{{ data.thumbnail }}',
+                        thumbnail: '{% if data.thumbnail and data.thumbnail != \"GANTI-DENGAN-URL-GAMBAR\" %}{{ data.thumbnail }}{% else %}/assets/images/hero-kemiri.jpg{% endif %}',
                         description: '{{ data.short_description | escape }}',
-                        maps_location: '{{ data.maps_location }}',
+                        maps_location: '{% if data.maps_location != \"GANTI-DENGAN-LINK-GOOGLE-MAPS\" %}{{ data.maps_location }}{% endif %}',
                         products: {{ data.products_sold | json }},
                         shopee: '{{ data.shopee_link }}',
-                        tiktok: '{{ data.tiktok_link }}'
+                        tiktok: '{{ data.tiktok_link }}',
+                        google_sites: '{% if data.google_sites_url and not (\"GANTI-DENGAN-LINK-ASLI\" in data.google_sites_url) %}{{ data.google_sites_url }}{% endif %}'
                       }"
                       type="button" 
                       class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors shadow">
@@ -143,7 +119,7 @@ description: "Katalog Usaha Mikro, Kecil, dan Menengah (UMKM) Desa Kemiri. Produ
         
         <!-- Modal Content Header -->
         <div class="relative h-44 bg-slate-900">
-          <img :src="activeModal ? activeModal.thumbnail : ''" :alt="activeModal ? activeModal.name : ''" class="w-full h-full object-cover opacity-60">
+          <img :src="activeModal && activeModal.thumbnail ? activeModal.thumbnail : '/assets/images/hero-kemiri.jpg'" onerror="this.src='/assets/images/hero-kemiri.jpg'" :alt="activeModal ? activeModal.name : ''" class="w-full h-full object-cover opacity-60">
           <button @click="activeModal = null" type="button" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors">
             ✕
           </button>
@@ -161,39 +137,25 @@ description: "Katalog Usaha Mikro, Kecil, dan Menengah (UMKM) Desa Kemiri. Produ
             <p class="text-slate-600 text-sm leading-relaxed" x-text="activeModal ? activeModal.description : ''"></p>
           </div>
 
-          <!-- Daftar Produk -->
-          <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Daftar Produk Dijual</h4>
-            <ul class="space-y-1.5 text-sm text-slate-700">
-              <template x-for="(prod, i) in (activeModal ? activeModal.products : [])" :key="i">
-                <li class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                  <span x-text="prod"></span>
-                </li>
-              </template>
-            </ul>
-          </div>
-
           <!-- Quick Action Marketplace Links -->
-          <div class="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
-            <!-- Google Maps -->
-            <a :href="activeModal ? activeModal.maps_location : '#'" target="_blank" rel="noopener"
-               class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2">
+          <div x-show="activeModal && (activeModal.maps_location || activeModal.google_sites || activeModal.shopee)" class="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+            <!-- 1. Google Maps (full-width) -->
+            <a x-show="activeModal && activeModal.maps_location" :href="activeModal ? activeModal.maps_location : '#'" target="_blank" rel="noopener noreferrer"
+               class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs flex items-center justify-center gap-2 transition-colors">
               <span>📍 Buka Lokasi di Google Maps</span>
             </a>
 
-            <!-- Shopee & TikTok links -->
-            <div class="grid grid-cols-2 gap-2">
-              <a :href="activeModal && activeModal.shopee ? activeModal.shopee : '#'" target="_blank" rel="noopener"
-                 class="py-2.5 px-3 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-600 font-semibold text-xs text-center flex items-center justify-center gap-1.5">
-                <span>🛒 Toko Shopee</span>
-              </a>
+            <!-- 2. Google Sites Website (full-width) -->
+            <a x-show="activeModal && activeModal.google_sites" :href="activeModal ? activeModal.google_sites : '#'" target="_blank" rel="noopener noreferrer"
+               class="w-full py-2.5 px-4 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold text-xs flex items-center justify-center gap-2 transition-colors">
+              <span>🌐 Kunjungi Google Sites</span>
+            </a>
 
-              <a :href="activeModal && activeModal.tiktok ? activeModal.tiktok : '#'" target="_blank" rel="noopener"
-                 class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs text-center flex items-center justify-center gap-1.5">
-                <span>🎵 Toko TikTok</span>
-              </a>
-            </div>
+            <!-- 3. Toko Shopee (full-width) -->
+            <a x-show="activeModal && activeModal.shopee" :href="activeModal ? activeModal.shopee : '#'" target="_blank" rel="noopener noreferrer"
+               class="w-full py-2.5 px-4 rounded-xl bg-orange-50 hover:bg-orange-100 text-orange-600 font-semibold text-xs flex items-center justify-center gap-2 transition-colors">
+              <span>🛒 Toko Shopee</span>
+            </a>
           </div>
 
         </div>

@@ -155,11 +155,11 @@ description: "Profil lengkap, sejarah, peta geografis, dan statistik infografis 
     {% if profil.peta_potensi_image %}
       <!-- Peta Potensi Desa Image Container -->
       <div class="mt-8 bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-lg space-y-3">
-        <div class="overflow-hidden rounded-xl bg-slate-100 border border-slate-200">
+        <div class="overflow-hidden rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center">
           <img src="{{ profil.peta_potensi_image }}" 
                alt="Peta potensi dan sebaran UMKM Desa Kemiri" 
                loading="lazy" 
-               class="w-full h-auto object-cover max-h-[600px] w-full">
+               class="w-full h-auto object-contain">
         </div>
         <p class="text-center text-xs sm:text-sm font-semibold text-slate-500 italic">
           🗺️ Peta Potensi & Sebaran Wilayah Desa Kemiri

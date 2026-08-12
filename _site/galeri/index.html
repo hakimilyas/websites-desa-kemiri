@@ -42,9 +42,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
     <!-- Logo & Brand Name -->
     <a href="/" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-700 to-emerald-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-700/20 group-hover:scale-105 transition-transform">
-        K
-      </div>
+      <img src="/assets/images/Logo-web.png" alt="Logo Desa Kemiri" class="w-10 h-10 object-contain group-hover:scale-105 transition-transform">
       <div>
         <span class="block text-lg font-bold text-slate-900 leading-none tracking-tight">Desa Kemiri</span>
         <span class="text-xs text-emerald-600 font-medium tracking-wide uppercase">Website Resmi</span>
@@ -126,108 +124,76 @@
   </div>
 </section>
 
-<!-- Gallery Section with Alpine.js Filtering & Lightbox -->
+<!-- Pure Image Gallery Grid & Lightbox Section -->
 <section class="py-16 bg-slate-50" x-data="{ 
-  category: 'Semua', 
-  activeLightbox: null,
+  activeLightboxIndex: null,
   items: [
     
       {
-        title: 'Pemandangan Sawah Terasering saat Senja',
-        image: '/assets/images/galeri-sawah.jpg',
-        category: 'Pemandangan',
-        caption: 'Suasana senja nan damai di hamparan sawah terasering Desa Kemiri.'
+        image: '/assets/images/Galeri 1.JPG',
+        title: 'Dokumentasi Desa Kemiri 1'
       },
     
       {
-        title: 'Gotong Royong Kebersihan Desa',
-        image: '/assets/images/galeri-gotong-royong.jpg',
-        category: 'Kegiatan',
-        caption: 'Antusiasme warga Desa Kemiri saat kerja bakti membersihkan saluran irigasi desa.'
+        image: '/assets/images/Galeri 2.JPG',
+        title: 'Dokumentasi Desa Kemiri 2'
       },
     
       {
-        title: 'Lansekap Perbukitan dan Kebun Kemiri',
-        image: '/assets/images/galeri-perbukitan.jpg',
-        category: 'Pemandangan',
-        caption: 'Keindahan bukit hijau yang mengelilingi pemukiman Desa Kemiri.'
+        image: '/assets/images/Galeri 3.JPG',
+        title: 'Dokumentasi Desa Kemiri 3'
       },
     
       {
-        title: 'Musyawarah Perencanaan Pembangunan Desa',
-        image: '/assets/images/galeri-musyawarah.jpg',
-        category: 'Kegiatan',
-        caption: 'Musrenbangdes di Balai Desa Kemiri untuk membahas program kerja tahunan.'
+        image: '/assets/images/Galeri 4.JPG',
+        title: 'Dokumentasi Desa Kemiri 4'
       },
     
       {
-        title: 'Sungai Alami &amp; Pelestarian Lingkungan',
-        image: '/assets/images/galeri-sungai.jpg',
-        category: 'Pemandangan',
-        caption: 'Aliran sungai jernih yang membelah kawasan persawahan Desa Kemiri.'
+        image: '/assets/images/Galeri 5.JPG',
+        title: 'Dokumentasi Desa Kemiri 5'
       },
     
       {
-        title: 'Pesta Adat &amp; Festival Budaya Desa',
-        image: '/assets/images/galeri-festival.jpg',
-        category: 'Kegiatan',
-        caption: 'Pawai seni dan pertunjukan seni tradisional tahunan Warga Desa Kemiri.'
+        image: '/assets/images/Galeri 6.JPG',
+        title: 'Dokumentasi Desa Kemiri 6'
       }
     
-  ]
-}">
+  ],
+  prev() {
+    if (this.activeLightboxIndex !== null) {
+      this.activeLightboxIndex = this.activeLightboxIndex === 0 ? this.items.length - 1 : this.activeLightboxIndex - 1;
+    }
+  },
+  next() {
+    if (this.activeLightboxIndex !== null) {
+      this.activeLightboxIndex = this.activeLightboxIndex === this.items.length - 1 ? 0 : this.activeLightboxIndex + 1;
+    }
+  }
+}"
+@keydown.window.escape="activeLightboxIndex = null"
+@keydown.window.left="prev()"
+@keydown.window.right="next()">
+
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Category Filter Buttons -->
-    <div class="flex justify-center items-center flex-wrap gap-3 mb-12">
-      <button @click="category = 'Semua'" 
-              :class="category === 'Semua' ? 'bg-emerald-700 text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'"
-              class="px-5 py-2.5 rounded-full text-sm font-bold transition-all">
-        🌟 Semua Foto
-      </button>
-
-      <button @click="category = 'Pemandangan'" 
-              :class="category === 'Pemandangan' ? 'bg-emerald-700 text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'"
-              class="px-5 py-2.5 rounded-full text-sm font-bold transition-all">
-        🌾 Pemandangan Desa
-      </button>
-
-      <button @click="category = 'Kegiatan'" 
-              :class="category === 'Kegiatan' ? 'bg-emerald-700 text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'"
-              class="px-5 py-2.5 rounded-full text-sm font-bold transition-all">
-        🤝 Kegiatan Warga
-      </button>
-    </div>
-
-    <!-- Gallery Grid (Responsive Grid) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Gallery Grid (Pure Image Grid) -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
       <template x-for="(item, index) in items" :key="index">
-        <div x-show="category === 'Semua' || category === item.category" 
-             x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0 scale-95"
-             x-transition:enter-end="opacity-100 scale-100"
-             @click="activeLightbox = item"
-             class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl bg-white border border-slate-200 cursor-pointer transition-all duration-300">
+        <div @click="activeLightboxIndex = index"
+             class="group relative aspect-square rounded-2xl overflow-hidden shadow-sm hover:shadow-xl bg-slate-200 border border-slate-200 cursor-pointer transition-all duration-300">
           
-          <!-- Image aspect-video -->
-          <div class="h-64 overflow-hidden bg-slate-100 relative">
-            <img :src="item.image" :alt="item.title" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <span class="p-3 rounded-full bg-white/20 backdrop-blur-md text-white">
-                🔍 Perbesar
-              </span>
-            </div>
+          <!-- Image -->
+          <img :src="item.image" :alt="item.title" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          
+          <!-- Hover Overlay -->
+          <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold flex items-center gap-1.5 shadow-lg">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span>Perbesar</span>
+            </span>
           </div>
 
-          <!-- Caption & Title Card Footer -->
-          <div class="p-5 bg-white">
-            <span :class="item.category === 'Pemandangan' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'"
-                  class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md" 
-                  x-text="item.category">
-            </span>
-            <h3 class="font-bold text-slate-900 text-base mt-2 leading-snug" x-text="item.title"></h3>
-            <p class="text-slate-500 text-xs mt-1 line-clamp-2" x-text="item.caption"></p>
-          </div>
         </div>
       </template>
     </div>
@@ -235,50 +201,61 @@
   </div>
 
   <!-- Fullscreen Lightbox Modal (Alpine.js) -->
-  <div x-show="activeLightbox !== null" 
+  <div x-show="activeLightboxIndex !== null" 
        x-cloak
        class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
        role="dialog">
     
     <!-- Lightbox Backdrop -->
-    <div x-show="activeLightbox !== null"
+    <div x-show="activeLightboxIndex !== null"
          x-transition:enter="ease-out duration-300"
          x-transition:enter-start="opacity-0"
          x-transition:enter-end="opacity-100"
          x-transition:leave="ease-in duration-200"
          x-transition:leave-start="opacity-100"
          x-transition:leave-end="opacity-0"
-         @click="activeLightbox = null"
+         @click="activeLightboxIndex = null"
          class="fixed inset-0 bg-slate-950/90 backdrop-blur-md"></div>
 
-    <!-- Lightbox Popup Window -->
-    <div x-show="activeLightbox !== null"
+    <!-- Lightbox Popup Content (Pure Image View) -->
+    <div x-show="activeLightboxIndex !== null"
          x-transition:enter="ease-out duration-300"
          x-transition:enter-start="opacity-0 scale-95"
          x-transition:enter-end="opacity-100 scale-100"
          x-transition:leave="ease-in duration-200"
          x-transition:leave-start="opacity-100 scale-100"
          x-transition:leave-end="opacity-0 scale-95"
-         class="relative z-10 max-w-4xl w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 text-white">
+         class="relative z-10 max-w-5xl w-full bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 text-white flex flex-col items-center justify-center min-h-[50vh] max-h-[85vh]">
       
       <!-- Close Button -->
-      <button @click="activeLightbox = null" 
-              class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors">
+      <button @click="activeLightboxIndex = null" 
+              type="button"
+              class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors shadow-lg"
+              aria-label="Tutup modal">
         ✕
       </button>
 
-      <!-- Lightbox Image -->
-      <div class="max-h-[70vh] bg-black flex items-center justify-center">
-        <img :src="activeLightbox ? activeLightbox.image : ''" :alt="activeLightbox ? activeLightbox.title : ''" class="max-h-[70vh] w-auto object-contain">
-      </div>
+      <!-- Previous Image Button -->
+      <button @click="prev()" 
+              type="button"
+              class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors shadow-lg text-2xl font-bold"
+              aria-label="Foto Sebelumnya">
+        ‹
+      </button>
 
-      <!-- Lightbox Caption Bar -->
-      <div class="p-6 bg-slate-900 border-t border-slate-800 space-y-2">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xl font-bold text-white" x-text="activeLightbox ? activeLightbox.title : ''"></h3>
-          <span class="text-xs px-2.5 py-1 rounded bg-emerald-600 text-white font-semibold" x-text="activeLightbox ? activeLightbox.category : ''"></span>
-        </div>
-        <p class="text-slate-300 text-sm leading-relaxed" x-text="activeLightbox ? activeLightbox.caption : ''"></p>
+      <!-- Next Image Button -->
+      <button @click="next()" 
+              type="button"
+              class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors shadow-lg text-2xl font-bold"
+              aria-label="Foto Selanjutnya">
+        ›
+      </button>
+
+      <!-- Enlarged Image -->
+      <div class="w-full h-full p-4 flex items-center justify-center overflow-hidden">
+        <img :src="activeLightboxIndex !== null ? items[activeLightboxIndex].image : ''" 
+             :alt="activeLightboxIndex !== null ? items[activeLightboxIndex].title : ''" 
+             class="max-h-[80vh] w-auto object-contain rounded-lg shadow-2xl transition-all duration-300">
       </div>
 
     </div>
@@ -289,14 +266,12 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-300 pt-12 pb-8 border-t border-slate-800">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+  <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
     <!-- Col 1: Brand & Desc -->
     <div class="md:col-span-2 space-y-4">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center text-white font-bold text-xl">
-          K
-        </div>
+        <img src="/assets/images/Logo-web.png" alt="Logo Desa Kemiri" class="w-10 h-10 object-contain">
         <span class="text-xl font-bold text-white">Desa Kemiri</span>
       </div>
       <p class="text-slate-400 text-sm leading-relaxed max-w-md">
@@ -321,20 +296,14 @@
       <ul class="space-y-2.5 text-sm text-slate-400">
         <li class="flex items-start gap-2">
           <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          <span>Balai Desa Kemiri, Kec. Subah, Kab. Batang, Jawa Tengah</span>
+          <span>Balai Desa Kemiri, Kec. Jayakerta, Kab. Karawang, Jawa Barat</span>
         </li>
         <li class="flex items-center gap-2">
           <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <span>kontak@desakemiri.go.id</span>
+          <span>[EMAIL_ADDRESS]</span>
         </li>
       </ul>
     </div>
-  </div>
-
-  <!-- Bottom Copyright -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-    <p>&copy; 2026 Pemerintah Desa Kemiri. Hak Cipta Dilindungi.</p>
-    <p>Dikelola dengan Eleventy (11ty) & Decap CMS</p>
   </div>
 </footer>
 
